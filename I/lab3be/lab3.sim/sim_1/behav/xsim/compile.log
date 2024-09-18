@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/lab3/lab3.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff1
+INFO: [VRFC 10-311] analyzing module dff2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/lab3/lab3.srcs/sim_1/new/test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test

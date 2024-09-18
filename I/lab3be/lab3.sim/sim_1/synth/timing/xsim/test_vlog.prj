@@ -1,0 +1,8 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"test_time_synth.v" \
+"../../../../../lab3.srcs/sources_1/new/top.v" \
+"../../../../../lab3.srcs/sim_1/new/test.v" \
+
+# Do not sort compile order
+nosort

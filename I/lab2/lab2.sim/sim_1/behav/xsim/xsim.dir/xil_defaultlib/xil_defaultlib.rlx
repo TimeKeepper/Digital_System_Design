@@ -1,0 +1,7 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/project/lab2/lab2.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+D:/project/lab2/lab2.srcs/sim_1/new/top_tb.v,1712916601,verilog,,,,top_tb,,,,,,,,
+D:/project/lab2/lab2.srcs/sources_1/new/top.v,1712927521,verilog,,D:/project/lab2/lab2.srcs/sim_1/new/top_tb.v,,full_adder;fulladderfourbit;half_adder;head_adder;pg_Generater;top,,,,,,,,

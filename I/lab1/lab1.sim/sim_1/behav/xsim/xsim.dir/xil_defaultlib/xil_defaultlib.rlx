@@ -1,0 +1,7 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/project/lab1/lab1.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+D:/project/lab1/lab1.srcs/sim_1/new/adder_test.v,1711695787,verilog,,,,adder_test,,,,,,,,
+D:/project/lab1/lab1.srcs/sources_1/new/top.v,1711701672,verilog,,D:/project/lab1/lab1.srcs/sim_1/new/adder_test.v,,full_adder;full_adder_single;half_adder;top,,,,,,,,

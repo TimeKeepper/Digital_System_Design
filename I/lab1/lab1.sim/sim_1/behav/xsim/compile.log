@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/lab1/lab1.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module half_adder
+INFO: [VRFC 10-311] analyzing module full_adder
+INFO: [VRFC 10-311] analyzing module full_adder_single
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/lab1/lab1.srcs/sim_1/new/adder_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder_test
