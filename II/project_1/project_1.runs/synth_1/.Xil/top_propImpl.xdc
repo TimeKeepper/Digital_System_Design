@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:d:/project/dsd/II/project_1/project_1.srcs/sources_1/ip/ps2_mouse_0/constrs_1/new/final.xdc rfile:../../../project_1.srcs/sources_1/ip/ps2_mouse_0/constrs_1/new/final.xdc id:1 order:EARLY scoped_inst:mouse/inst} [current_design]
-set_property SRC_FILE_INFO {cfile:D:/project/dsd/II/project_1/project_1.srcs/constrs_1/new/top.xdc rfile:../../../project_1.srcs/constrs_1/new/top.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:e:/project/single/Digital_System_Design/II/project_1/project_1.srcs/sources_1/ip/ps2_mouse_0/constrs_1/new/final.xdc rfile:../../../project_1.srcs/sources_1/ip/ps2_mouse_0/constrs_1/new/final.xdc id:1 order:EARLY scoped_inst:mouse/inst} [current_design]
+set_property SRC_FILE_INFO {cfile:E:/project/single/Digital_System_Design/II/project_1/project_1.srcs/constrs_1/new/top.xdc rfile:../../../project_1.srcs/constrs_1/new/top.xdc id:2} [current_design]
 current_instance mouse/inst
 set_property src_info {type:SCOPED_XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clock]

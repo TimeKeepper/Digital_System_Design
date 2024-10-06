@@ -1,0 +1,56 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Sep 18 10:55:27 2024
+# Process ID: 33036
+# Current directory: E:/project/single/Digital_System_Design/II/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14300 E:\project\single\Digital_System_Design\II\project_1\project_1.xpr
+# Log file: E:/project/single/Digital_System_Design/II/project_1/vivado.log
+# Journal file: E:/project/single/Digital_System_Design/II/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/project/single/Digital_System_Design/II/project_1/project_1.xpr
+INFO: [Project 1-313] Project file moved from 'D:/project/dsd/II/project_1' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/project/single/Digital_System_Design/I/final/final.srcs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 836.152 ; gain = 194.328
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -jobs 16
+[Wed Sep 18 10:56:11 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_1/project_1.runs/synth_1/runme.log
+[Wed Sep 18 10:56:11 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_1/project_1.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Sep 18 10:57:48 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_1/project_1.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 475 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.285 . Memory (MB): peak = 1814.047 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.286 . Memory (MB): peak = 1814.047 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1814.047 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 44 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 36 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 6 instances
+
+open_run: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 1992.051 ; gain = 965.395
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 18 10:59:16 2024...
