@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Oct  7 09:58:22 2024
+# Process ID: 27896
+# Current directory: E:/project/single/Digital_System_Design/II/project_3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent33816 E:\project\single\Digital_System_Design\II\project_3\project_3.xpr
+# Log file: E:/project/single/Digital_System_Design/II/project_3/vivado.log
+# Journal file: E:/project/single/Digital_System_Design/II/project_3\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/project/single/Digital_System_Design/II/project_3/project_3.xpr
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+open_run impl_1
+report_power -name {power_1}
+current_design synth_1
+report_power -name {power_1}
+current_design impl_1
+report_power -name {power_2}
+report_utilization -name utilization_1
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
