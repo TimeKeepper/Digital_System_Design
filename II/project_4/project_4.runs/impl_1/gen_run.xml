@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1729819278">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1730026134">
   <File Type="BITSTR-BMM" Name="II_4_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="II_4_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="II_4_timing_summary_init.rpt"/>
@@ -78,14 +78,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/ps2_read_funcmod.v">
+    <File Path="$PSRCDIR/sources_1/new/ps2_mouse.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/ps2mouse.v">
+    <File Path="$PSRCDIR/sources_1/new/ps2_read_funcmod.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -118,6 +118,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/test3.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/pointer.coe">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -159,6 +165,7 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="BRAM_P"/>
   <BlockFileSet Type="BlockSrcs" Name="BRAM_0"/>
   <BlockFileSet Type="BlockSrcs" Name="BRAM"/>
 </GenRun>

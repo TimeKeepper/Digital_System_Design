@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Oct 25 09:21:59 2024
+| Date         : Sun Oct 27 18:49:25 2024
 | Host         : WIN-H8ULN2I4VKL running 64-bit major release  (build 9200)
 | Command      : report_utilization -file BRAM_utilization_synth.rpt -pb BRAM_utilization_synth.pb
 | Design       : BRAM

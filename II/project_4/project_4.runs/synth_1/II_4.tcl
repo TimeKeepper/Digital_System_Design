@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -33,15 +34,19 @@ set_property ip_cache_permissions {read write} [current_project]
 add_files E:/project/single/Digital_System_Design/II/project_4/logo.coe
 add_files E:/project/single/Digital_System_Design/II/project_4/test1.coe
 add_files E:/project/single/Digital_System_Design/II/project_4/test2.coe
-add_files e:/project/single/Digital_System_Design/II/project_4/test3.coe
+add_files E:/project/single/Digital_System_Design/II/project_4/test3.coe
+add_files e:/project/single/Digital_System_Design/II/project_4/pointer.coe
 read_verilog -library xil_defaultlib -sv E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/II_4.sv
 read_verilog -library xil_defaultlib {
   E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_init_funcmod.v
+  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_mouse.v
   E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_read_funcmod.v
-  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2mouse.v
 }
 read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci
 set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0_ooc.xdc]
+
+read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P_ooc.xdc]
 
 read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci
 set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM_ooc.xdc]

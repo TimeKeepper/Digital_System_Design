@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Fri Oct 25 09:23:14 2024
+| Date             : Sun Oct 27 18:51:16 2024
 | Host             : WIN-H8ULN2I4VKL running 64-bit major release  (build 9200)
 | Command          : report_power -file II_4_power_routed.rpt -pb II_4_power_summary_routed.pb -rpx II_4_power_routed.rpx
 | Design           : II_4
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.086        |
+| Total On-Chip Power (W)  | 0.092        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.013        |
+| Dynamic (W)              | 0.018        |
 | Device Static (W)        | 0.073        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 84.5         |
+| Junction Temperature (C) | 25.5         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,17 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.003 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      418 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      241 |     20800 |            1.16 |
-|   CARRY4       |    <0.001 |        3 |      8150 |            0.04 |
-|   Register     |    <0.001 |       81 |     41600 |            0.19 |
-|   Others       |     0.000 |       66 |       --- |             --- |
-| Signals        |     0.001 |      520 |       --- |             --- |
-| Block RAM      |     0.008 |       28 |        50 |           56.00 |
-| DSPs           |    <0.001 |        1 |        90 |            1.11 |
+| Slice Logic    |     0.001 |      720 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      432 |     20800 |            2.08 |
+|   CARRY4       |    <0.001 |       22 |      8150 |            0.27 |
+|   Register     |    <0.001 |      146 |     41600 |            0.35 |
+|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
+|   Others       |     0.000 |       70 |       --- |             --- |
+| Signals        |     0.002 |      820 |       --- |             --- |
+| Block RAM      |     0.010 |     28.5 |        50 |           57.00 |
+| DSPs           |    <0.001 |        3 |        90 |            3.33 |
 | I/O            |    <0.001 |       18 |       106 |           16.98 |
 | Static Power   |     0.073 |          |           |                 |
-| Total          |     0.086 |          |           |                 |
+| Total          |     0.092 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.022 |       0.012 |      0.010 |
+| Vccint    |       1.000 |     0.027 |       0.017 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -142,14 +143,18 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| II_4                   |     0.013 |
+| II_4                   |     0.018 |
 |   BRAM                 |     0.005 |
 |     U0                 |     0.005 |
 |       inst_blk_mem_gen |     0.005 |
 |   BRAM_0               |     0.005 |
 |     U0                 |     0.005 |
 |       inst_blk_mem_gen |     0.005 |
-|   ps2_mouse            |     0.001 |
+|   BRAM_P               |     0.002 |
+|     U0                 |     0.002 |
+|       inst_blk_mem_gen |     0.002 |
+|   ps2_mouse            |     0.002 |
+|   vga_sync             |     0.001 |
 +------------------------+-----------+
 
 
