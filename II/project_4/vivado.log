@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Oct 27 14:55:25 2024
-# Process ID: 45028
+# Start of session at: Wed Nov 13 03:17:52 2024
+# Process ID: 41420
 # Current directory: E:/project/single/Digital_System_Design/II/project_4
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent33884 E:\project\single\Digital_System_Design\II\project_4\project_4.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20680 E:\project\single\Digital_System_Design\II\project_4\project_4.xpr
 # Log file: E:/project/single/Digital_System_Design/II/project_4/vivado.log
 # Journal file: E:/project/single/Digital_System_Design/II/project_4\vivado.jou
 #-----------------------------------------------------------
@@ -16,68 +16,72 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 801.234 ; gain = 131.270
 update_compile_order -fileset sources_1
-export_ip_user_files -of_objects  [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2mouse.v] -no_script -reset -force -quiet
-remove_files  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2mouse.v
-update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 15:31:16 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 15:31:16 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-close [ open E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_mouse.v w ]
-add_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_mouse.v
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 15:33:30 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 15:33:30 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 15:34:20 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 15:34:20 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 15:34:58 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 15:34:58 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 open_hw
 connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2018.3
-  **** Build date : Dec  7 2018-00:40:27
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-
-
 open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183715066A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183739804A
 set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
 current_hw_device [get_hw_devices xc7a35t_0]
 refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Nov 13 03:33:58 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Wed Nov 13 03:33:58 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Nov 13 03:40:51 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Wed Nov 13 03:40:51 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210183739804A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183739804A
 INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:15:48 2024] Launched synth_1...
+[Wed Nov 13 12:17:44 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:15:48 2024] Launched impl_1...
+[Wed Nov 13 12:17:44 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -88,9 +92,9 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:18:20 2024] Launched synth_1...
+[Wed Nov 13 12:23:24 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:18:20 2024] Launched impl_1...
+[Wed Nov 13 12:23:24 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -101,9 +105,9 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:24:49 2024] Launched synth_1...
+[Wed Nov 13 12:26:50 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:24:49 2024] Launched impl_1...
+[Wed Nov 13 12:26:50 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -114,9 +118,9 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:28:50 2024] Launched synth_1...
+[Wed Nov 13 12:29:32 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:28:50 2024] Launched impl_1...
+[Wed Nov 13 12:29:32 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -127,9 +131,9 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:31:36 2024] Launched synth_1...
+[Wed Nov 13 12:39:40 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:31:36 2024] Launched impl_1...
+[Wed Nov 13 12:39:40 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -140,35 +144,9 @@ refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:35:05 2024] Launched synth_1...
+[Wed Nov 13 12:53:59 2024] Launched synth_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:35:05 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:37:35 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:37:35 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:46:46 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:46:46 2024] Launched impl_1...
+[Wed Nov 13 12:53:59 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -180,189 +158,817 @@ INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed wi
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
-create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name BRAM_P -dir e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip
-set_property -dict [list CONFIG.Component_Name {BRAM_P} CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Write_Width_A {12} CONFIG.Write_Depth_A {400} CONFIG.Read_Width_A {12} CONFIG.Write_Width_B {12} CONFIG.Read_Width_B {12} CONFIG.Load_Init_File {true} CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/pointer.coe} CONFIG.Port_A_Write_Rate {0}] [get_ips BRAM_P]
-WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'BRAM_P' to 'BRAM_P' is not allowed and is ignored.
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
-generate_target {instantiation_template} [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_P'...
-generate_target all [get_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci]
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_P'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_P'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_P'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_P'...
-catch { config_ip_cache -export [get_ips -all BRAM_P] }
-export_ip_user_files -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci]
-launch_runs -jobs 16 BRAM_P_synth_1
-[Sun Oct 27 16:54:26 2024] Launched BRAM_P_synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_P_synth_1/runme.log
-export_simulation -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 16:59:31 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 16:59:31 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 17:04:20 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 17:04:20 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 17:06:41 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 17:06:41 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 17:16:41 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 17:16:41 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 18:25:03 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 18:25:03 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 18:32:10 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 18:32:10 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/logo.coe' provided. It will be converted relative to IP Instance files '../../../../logo.coe'
-set_property -dict [list CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/logo.coe}] [get_ips BRAM]
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/logo.coe' provided. It will be converted relative to IP Instance files '../../../../logo.coe'
-generate_target all [get_files  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM'...
-catch { config_ip_cache -export [get_ips -all BRAM] }
-INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP BRAM, cache-ID = 22071f122acb4bcf; cache size = 5.309 MB.
-catch { [ delete_ip_run [get_ips -all BRAM] ] }
+export_ip_user_files -of_objects  [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci] -no_script -reset -force -quiet
+remove_files  -fileset BRAM E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci
 INFO: [Project 1-386] Moving file 'E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci' from fileset 'BRAM' to fileset 'sources_1'.
-export_ip_user_files -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci]
-INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci'
-export_simulation -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-reset_run synth_1
-update_compile_order -fileset sources_1
-launch_runs impl_1 -to_step write_bitstream -jobs 16
-INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci' is already up-to-date
-[Sun Oct 27 18:39:31 2024] Launched synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 18:39:31 2024] Launched impl_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
-set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
-set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
-program_hw_devices [get_hw_devices xc7a35t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
 WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/test1.coe' provided. It will be converted relative to IP Instance files '../../../../test1.coe'
-set_property -dict [list CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/test1.coe}] [get_ips BRAM]
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/test1.coe' provided. It will be converted relative to IP Instance files '../../../../test1.coe'
-generate_target all [get_files  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM'...
-catch { config_ip_cache -export [get_ips -all BRAM] }
-export_ip_user_files -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci]
-launch_runs -jobs 16 BRAM_synth_1
-[Sun Oct 27 18:48:33 2024] Launched BRAM_synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_synth_1/runme.log
-export_simulation -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/test2.coe' provided. It will be converted relative to IP Instance files '../../../../test2.coe'
-set_property -dict [list CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/test2.coe}] [get_ips BRAM_0]
-INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/test2.coe' provided. It will be converted relative to IP Instance files '../../../../test2.coe'
-generate_target all [get_files  E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci]
-INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_0'...
-INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_0'...
-INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_0'...
-INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_0'...
-INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_0'...
-catch { config_ip_cache -export [get_ips -all BRAM_0] }
-export_ip_user_files -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci] -no_script -sync -force -quiet
-reset_run BRAM_0_synth_1
-WARNING: [Vivado 12-1017] Problems encountered:
-1. Failed to delete one or more files in run directory E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_0_synth_1
-
-launch_runs -jobs 16 BRAM_0_synth_1
-[Sun Oct 27 18:48:49 2024] Launched BRAM_0_synth_1...
-Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_0_synth_1/runme.log
-export_simulation -of_objects [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/frame_a.coe' provided. It will be converted relative to IP Instance files '../../../../frame_a.coe'
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name BRAM_framea -dir e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {BRAM_framea} CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Write_Width_A {12} CONFIG.Write_Depth_A {40000} CONFIG.Read_Width_A {12} CONFIG.Write_Width_B {12} CONFIG.Read_Width_B {12} CONFIG.Load_Init_File {true} CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/frame_a.coe} CONFIG.Port_A_Write_Rate {0}] [get_ips BRAM_framea]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'BRAM_framea' to 'BRAM_framea' is not allowed and is ignored.
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/frame_a.coe' provided. It will be converted relative to IP Instance files '../../../../frame_a.coe'
+generate_target {instantiation_template} [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_framea'...
+generate_target all [get_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_framea'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_framea'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_framea'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_framea'...
+catch { config_ip_cache -export [get_ips -all BRAM_framea] }
+export_ip_user_files -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci]
+launch_runs -jobs 16 BRAM_framea_synth_1
+[Wed Nov 13 13:03:51 2024] Launched BRAM_framea_synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_framea_synth_1/runme.log
+export_simulation -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
 reset_run synth_1
 WARNING: [Vivado 12-1017] Problems encountered:
 1. Failed to delete one or more files in run directory E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1
 
 launch_runs impl_1 -to_step write_bitstream -jobs 16
-[Sun Oct 27 18:48:54 2024] Launched BRAM_0_synth_1, BRAM_synth_1, synth_1...
+[Wed Nov 13 13:04:31 2024] Launched BRAM_framea_synth_1, synth_1...
 Run output will be captured here:
-BRAM_0_synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_0_synth_1/runme.log
-BRAM_synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_synth_1/runme.log
+BRAM_framea_synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_framea_synth_1/runme.log
 synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
-[Sun Oct 27 18:48:54 2024] Launched impl_1...
+[Wed Nov 13 13:04:31 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Nov 13 13:05:57 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Wed Nov 13 13:05:58 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Nov 13 13:06:38 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Wed Nov 13 13:06:38 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+export_ip_user_files -of_objects  [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci] -no_script -reset -force -quiet
+remove_files  -fileset BRAM_0 E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci
+INFO: [Project 1-386] Moving file 'E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci' from fileset 'BRAM_0' to fileset 'sources_1'.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/frame_b.coe' provided. It will be converted relative to IP Instance files '../../../../frame_b.coe'
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name BRAM_frameb -dir e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {BRAM_frameb} CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Write_Width_A {12} CONFIG.Write_Depth_A {40000} CONFIG.Read_Width_A {12} CONFIG.Write_Width_B {12} CONFIG.Read_Width_B {12} CONFIG.Load_Init_File {true} CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/frame_b.coe} CONFIG.Port_A_Write_Rate {0}] [get_ips BRAM_frameb]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'BRAM_frameb' to 'BRAM_frameb' is not allowed and is ignored.
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/frame_b.coe' provided. It will be converted relative to IP Instance files '../../../../frame_b.coe'
+generate_target {instantiation_template} [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_frameb'...
+generate_target all [get_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_frameb'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_frameb'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_frameb'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_frameb'...
+catch { config_ip_cache -export [get_ips -all BRAM_frameb] }
+export_ip_user_files -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci]
+launch_runs -jobs 16 BRAM_frameb_synth_1
+[Wed Nov 13 13:13:55 2024] Launched BRAM_frameb_synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_frameb_synth_1/runme.log
+export_simulation -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Wed Nov 13 13:14:15 2024] Launched BRAM_frameb_synth_1, synth_1...
+Run output will be captured here:
+BRAM_frameb_synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/BRAM_frameb_synth_1/runme.log
+synth_1: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Wed Nov 13 13:14:15 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name BRAM_pointer0 -dir e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {BRAM_pointer0} CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Write_Width_A {12} CONFIG.Write_Depth_A {400} CONFIG.Read_Width_A {12} CONFIG.Write_Width_B {12} CONFIG.Read_Width_B {12} CONFIG.Load_Init_File {true} CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/pointer.coe} CONFIG.Port_A_Write_Rate {0}] [get_ips BRAM_pointer0]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'BRAM_pointer0' to 'BRAM_pointer0' is not allowed and is ignored.
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
+generate_target {instantiation_template} [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_pointer0'...
+generate_target all [get_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_pointer0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_pointer0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_pointer0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_pointer0'...
+catch { config_ip_cache -export [get_ips -all BRAM_pointer0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP BRAM_pointer0, cache-ID = 0d54bdb51d47ead3; cache size = 6.873 MB.
+export_ip_user_files -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci'
+export_simulation -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+export_ip_user_files -of_objects  [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci] -no_script -reset -force -quiet
+remove_files  -fileset BRAM_P E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci
+INFO: [Project 1-386] Moving file 'E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci' from fileset 'BRAM_P' to fileset 'sources_1'.
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Nov 14 01:34:36 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:34:37 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name BRAM_pointer -dir e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip
+set_property -dict [list CONFIG.Component_Name {BRAM_pointer} CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Write_Width_A {12} CONFIG.Write_Depth_A {400} CONFIG.Read_Width_A {12} CONFIG.Write_Width_B {12} CONFIG.Read_Width_B {12} CONFIG.Load_Init_File {true} CONFIG.Coe_File {E:/project/single/Digital_System_Design/II/project_4/pointer.coe} CONFIG.Port_A_Write_Rate {0}] [get_ips BRAM_pointer]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'BRAM_pointer' to 'BRAM_pointer' is not allowed and is ignored.
+INFO: [IP_Flow 19-3484] Absolute path of file 'e:/project/single/Digital_System_Design/II/project_4/pointer.coe' provided. It will be converted relative to IP Instance files '../../../../pointer.coe'
+generate_target {instantiation_template} [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'BRAM_pointer'...
+update_compile_order -fileset sources_1
+generate_target all [get_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'BRAM_pointer'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'BRAM_pointer'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'BRAM_pointer'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'BRAM_pointer'...
+catch { config_ip_cache -export [get_ips -all BRAM_pointer] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP BRAM_pointer, cache-ID = 0d54bdb51d47ead3; cache size = 6.873 MB.
+export_ip_user_files -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci'
+export_simulation -of_objects [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci] -directory E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/sim_scripts -ip_user_files_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files -ipstatic_source_dir E:/project/single/Digital_System_Design/II/project_4/project_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/modelsim} {questa=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/questa} {riviera=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/riviera} {activehdl=E:/project/single/Digital_System_Design/II/project_4/project_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+export_ip_user_files -of_objects  [get_files e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci] -no_script -reset -force -quiet
+remove_files  e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer0/BRAM_pointer0.xci
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+[Thu Nov 14 01:36:10 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:36:10 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 01:38:05 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:38:05 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 01:49:35 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:49:35 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 01:53:42 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:53:42 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 01:59:53 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 01:59:53 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:03:20 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:03:20 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:08:15 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:08:15 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:17:11 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:17:11 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:20:21 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:20:21 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:23:58 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:23:58 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:27:43 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:27:43 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:30:11 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:30:11 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:36:00 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:36:00 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:38:16 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:38:16 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:44:58 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:44:58 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:50:09 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:50:09 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 02:57:31 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 02:57:31 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:00:12 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:00:12 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:04:18 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:04:18 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:06:29 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:06:29 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:12:06 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:12:06 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:15:29 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:15:29 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:22:29 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:22:29 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:28:08 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:28:08 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:30:41 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:30:41 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:36:59 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:36:59 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 03:41:52 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 03:41:52 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 05:34:53 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 05:34:53 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 05:57:08 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 05:57:08 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:01:27 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:01:27 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:04:04 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:04:04 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:07:17 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:07:17 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:11:31 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:11:31 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:13:15 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:13:16 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:15:18 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:15:18 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:17:02 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:17:02 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:18:55 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:18:55 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:50:42 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:50:42 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:53:53 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:53:53 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:56:10 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:56:10 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 06:58:23 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 06:58:23 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:01:04 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:01:04 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:03:35 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:03:35 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:20:28 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:20:28 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:25:57 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:25:57 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:29:27 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:29:27 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:45:23 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:45:23 2024] Launched impl_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/II_4.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 16
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci' is already up-to-date
+[Thu Nov 14 07:59:17 2024] Launched synth_1...
+Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/runme.log
+[Thu Nov 14 07:59:17 2024] Launched impl_1...
 Run output will be captured here: E:/project/single/Digital_System_Design/II/project_4/project_4.runs/impl_1/runme.log
 set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
 set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
@@ -372,4 +978,4 @@ INFO: [Labtools 27-3164] End of startup status: HIGH
 refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
 INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Oct 27 18:52:42 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 08:41:02 2024...

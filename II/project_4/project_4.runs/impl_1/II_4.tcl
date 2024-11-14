@@ -75,10 +75,12 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/II_4.dcp
-  read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_0/BRAM_0.xci
-  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_P/BRAM_P.xci
-  read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_1/BRAM.xci
-  read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/II_4.xdc
+  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
+  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci
+  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci
+  read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/vga.xdc
+  read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/ps2.xdc
+  read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/utils.xdc
   link_design -top II_4 -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]
