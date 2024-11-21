@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Wed Nov 13 05:46:13 2024
+| Date         : Fri Nov 22 05:03:37 2024
 | Host         : WIN-H8ULN2I4VKL running 64-bit major release  (build 9200)
 | Command      : report_utilization -file II_final_utilization_synth.rpt -pb II_final_utilization_synth.pb
 | Design       : II_final
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   63 |     0 |     20800 |  0.30 |
-|   LUT as Logic          |   63 |     0 |     20800 |  0.30 |
+| Slice LUTs*             |  867 |     0 |     20800 |  4.17 |
+|   LUT as Logic          |  867 |     0 |     20800 |  4.17 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   55 |     0 |     41600 |  0.13 |
-|   Register as Flip Flop |   55 |     0 |     41600 |  0.13 |
+| Slice Registers         |  239 |     0 |     41600 |  0.57 |
+|   Register as Flip Flop |  239 |     0 |     41600 |  0.57 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -54,10 +54,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
-| 0     |          Yes |           - |        Reset |
+| 6     |          Yes |           - |          Set |
+| 75    |          Yes |           - |        Reset |
 | 2     |          Yes |         Set |            - |
-| 53    |          Yes |       Reset |            - |
+| 156   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -80,8 +80,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |    1 |     0 |        90 |  1.11 |
-|   DSP48E1 only |    1 |       |           |       |
+| DSPs           |    3 |     0 |        90 |  3.33 |
+|   DSP48E1 only |    3 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   17 |     0 |       106 | 16.04 |
+| Bonded IOB                  |   18 |     0 |       106 | 16.98 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -150,17 +150,21 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   53 |        Flop & Latch |
-| LUT6     |   18 |                 LUT |
-| LUT5     |   18 |                 LUT |
-| LUT4     |   16 |                 LUT |
-| OBUF     |   15 |                  IO |
-| LUT2     |   13 |                 LUT |
-| LUT3     |   11 |                 LUT |
-| LUT1     |    6 |                 LUT |
-| IBUF     |    2 |                  IO |
+| LUT4     |  299 |                 LUT |
+| LUT6     |  249 |                 LUT |
+| LUT2     |  217 |                 LUT |
+| LUT5     |  175 |                 LUT |
+| LUT3     |  171 |                 LUT |
+| FDRE     |  156 |        Flop & Latch |
+| CARRY4   |  144 |          CarryLogic |
+| FDCE     |   75 |        Flop & Latch |
+| LUT1     |   38 |                 LUT |
+| OBUF     |   14 |                  IO |
+| FDPE     |    6 |        Flop & Latch |
+| IBUF     |    4 |                  IO |
+| DSP48E1  |    3 |    Block Arithmetic |
+| OBUFT    |    2 |                  IO |
 | FDSE     |    2 |        Flop & Latch |
-| DSP48E1  |    1 |    Block Arithmetic |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
@@ -168,11 +172,15 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
-| BRAM_ui  |    1 |
-+----------+------+
++--------------+------+
+|   Ref Name   | Used |
++--------------+------+
+| BRAM_ui      |    1 |
+| BRAM_subui   |    1 |
+| BRAM_pointer |    1 |
+| BRAM_number  |    1 |
+| BRAM_button  |    1 |
++--------------+------+
 
 
 9. Instantiated Netlists

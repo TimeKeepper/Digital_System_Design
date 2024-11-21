@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -36,22 +35,22 @@ add_files E:/project/single/Digital_System_Design/II/project_4/test1.coe
 add_files E:/project/single/Digital_System_Design/II/project_4/test2.coe
 add_files E:/project/single/Digital_System_Design/II/project_4/test3.coe
 add_files E:/project/single/Digital_System_Design/II/project_4/pointer.coe
-add_files e:/project/single/Digital_System_Design/II/project_4/frame_a.coe
-add_files e:/project/single/Digital_System_Design/II/project_4/frame_b.coe
+add_files E:/project/single/Digital_System_Design/II/project_4/frame_a.coe
+add_files E:/project/single/Digital_System_Design/II/project_4/frame_b.coe
 read_verilog -library xil_defaultlib -sv E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/II_4.sv
 read_verilog -library xil_defaultlib {
   E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_init_funcmod.v
   E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_mouse.v
   E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/new/ps2_read_funcmod.v
 }
-read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
-set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer_ooc.xdc]
-
-read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci
 set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea_ooc.xdc]
 
-read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci
 set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb_ooc.xdc]
+
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -70,8 +69,6 @@ set_property used_in_implementation false [get_files E:/project/single/Digital_S
 read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/utils.xdc
 set_property used_in_implementation false [get_files E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/utils.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

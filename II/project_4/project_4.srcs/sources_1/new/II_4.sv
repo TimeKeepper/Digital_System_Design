@@ -136,14 +136,13 @@ module image(
 
   wire io_hit_0 =
     {1'h0, io_vgaCtrl_xaddr} >= io_pos_x & {2'h0, io_vgaCtrl_xaddr} < {1'h0, io_pos_x}
-    + 12'h14 & io_vgaCtrl_yaddr >= io_pos_y & {1'h0, io_vgaCtrl_yaddr} < {1'h0, io_pos_y}
-    + 11'h14 & io_vgaCtrl_valid;
+    + 12'h20 & io_vgaCtrl_yaddr >= io_pos_y & {1'h0, io_vgaCtrl_yaddr} < {1'h0, io_pos_y}
+    + 11'h20 & io_vgaCtrl_valid;
   BRAM_pointer bram (
     .clka  (clock),
     .ena   (io_hit_0),
     .addra
-      (io_vgaCtrl_xaddr[8:0] - io_pos_x[8:0] + (io_vgaCtrl_yaddr[8:0] - io_pos_y[8:0])
-       * 9'h14),
+      (io_vgaCtrl_xaddr - io_pos_x[9:0] + {io_vgaCtrl_yaddr[4:0] - io_pos_y[4:0], 5'h0}),
     .douta (io_rgb)
   );
   assign io_hit = io_hit_0;

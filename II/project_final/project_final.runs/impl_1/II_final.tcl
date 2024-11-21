@@ -75,9 +75,14 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.runs/synth_1/II_final.dcp
-  read_ip -quiet e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_ui/BRAM_ui.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_ui/BRAM_ui.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_number/BRAM_number.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_button/BRAM_button.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_subui/BRAM_subui.xci
   read_xdc E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/utils.xdc
   read_xdc E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/vga.xdc
+  read_xdc E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/ps2.xdc
   link_design -top II_final -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]

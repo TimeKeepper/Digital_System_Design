@@ -65,7 +65,6 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -75,9 +74,9 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.runs/synth_1/II_4.dcp
-  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
-  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci
-  read_ip -quiet e:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_framea/BRAM_framea.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_frameb/BRAM_frameb.xci
+  read_ip -quiet E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
   read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/vga.xdc
   read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/ps2.xdc
   read_xdc E:/project/single/Digital_System_Design/II/project_4/project_4.srcs/constrs_1/new/utils.xdc

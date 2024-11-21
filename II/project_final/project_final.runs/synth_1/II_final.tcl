@@ -31,10 +31,31 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo e:/project/single/Digital_System_Design/II/project_final/project_final.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files e:/project/single/Digital_System_Design/II/project_final/ui.coe
+add_files E:/project/single/Digital_System_Design/II/project_final/ui.coe
+add_files E:/project/single/Digital_System_Design/II/project_final/pointer.coe
+add_files E:/project/single/Digital_System_Design/II/project_final/number.coe
+add_files E:/project/single/Digital_System_Design/II/project_final/button.coe
+add_files E:/project/single/Digital_System_Design/II/project_final/subui.coe
 read_verilog -library xil_defaultlib -sv E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/new/II-final.sv
-read_ip -quiet e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_ui/BRAM_ui.xci
+read_verilog -library xil_defaultlib {
+  E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/new/ps2_init_funcmod.v
+  E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/new/ps2_read_funcmod.v
+  E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/new/ps2mouse.v
+}
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_ui/BRAM_ui.xci
 set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_ui/BRAM_ui_ooc.xdc]
+
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_pointer/BRAM_pointer_ooc.xdc]
+
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_number/BRAM_number.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_number/BRAM_number_ooc.xdc]
+
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_button/BRAM_button.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_button/BRAM_button_ooc.xdc]
+
+read_ip -quiet E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_subui/BRAM_subui.xci
+set_property used_in_implementation false [get_files -all e:/project/single/Digital_System_Design/II/project_final/project_final.srcs/sources_1/ip/BRAM_subui/BRAM_subui_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -50,6 +71,11 @@ set_property used_in_implementation false [get_files E:/project/single/Digital_S
 read_xdc E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/vga.xdc
 set_property used_in_implementation false [get_files E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/vga.xdc]
 
+read_xdc E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/ps2.xdc
+set_property used_in_implementation false [get_files E:/project/single/Digital_System_Design/II/project_final/project_final.srcs/constrs_1/new/ps2.xdc]
+
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

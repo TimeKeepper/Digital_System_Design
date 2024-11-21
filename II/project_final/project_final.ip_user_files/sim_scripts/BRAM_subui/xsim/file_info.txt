@@ -1,0 +1,2 @@
+BRAM_subui.v,verilog,xil_defaultlib,../../../../project_final.srcs/sources_1/ip/BRAM_subui/sim/BRAM_subui.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

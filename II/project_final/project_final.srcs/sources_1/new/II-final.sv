@@ -22,18 +22,14 @@ module vga_sync(
                reset,
   output       io_hsync,
                io_vsync,
-               io_valid,
-  output [9:0] xaddr,
-               yaddr
+               Ctrl_valid,
+  output [9:0] Ctrl_xaddr,
+               Ctrl_yaddr
 );
 
   wire       _clock_devider_io_clk_out;
   reg  [9:0] x_cnt;
   reg  [9:0] y_cnt;
-  wire       h_valid = x_cnt > 10'h90 & x_cnt < 10'h311;
-  wire       v_valid = y_cnt > 10'h23 & y_cnt < 10'h204;
-  reg  [9:0] xaddr_r;
-  reg  [9:0] yaddr_r;
   always @(posedge _clock_devider_io_clk_out) begin
     if (reset) begin
       x_cnt <= 10'h1;
@@ -51,10 +47,6 @@ module vga_sync(
       else if (_GEN)
         y_cnt <= y_cnt + 10'h1;
     end
-    if (h_valid)
-      xaddr_r <= x_cnt - 10'h91;
-    if (v_valid)
-      yaddr_r <= y_cnt - 10'h24;
   end // always @(posedge)
   clock_devider clock_devider (
     .io_clk_in  (clock),
@@ -63,68 +55,597 @@ module vga_sync(
   );
   assign io_hsync = x_cnt > 10'h60;
   assign io_vsync = y_cnt > 10'h2;
-  assign io_valid = h_valid & v_valid;
-  assign xaddr = xaddr_r;
-  assign yaddr = yaddr_r;
+  assign Ctrl_valid = x_cnt > 10'h90 & x_cnt < 10'h311 & y_cnt > 10'h23 & y_cnt < 10'h204;
+  assign Ctrl_xaddr = x_cnt - 10'h91;
+  assign Ctrl_yaddr = y_cnt - 10'h24;
 endmodule
 
-// external module BRAM_ui
+// external module ps2mouse
+
+module mouse_pointer(
+  input         clock,
+                reset,
+  inout         io_ps2_clk,
+                io_ps2_data,
+  output        io_Left_click,
+  output [10:0] io_mouse_xpos,
+  output [9:0]  io_mouse_ypos
+);
+
+  wire        _ps2mouse_REn;
+  wire [23:0] _ps2mouse_mouse_data;
+  reg         io_Left_click_REG;
+  reg  [10:0] reg_xpos;
+  reg  [9:0]  reg_ypos;
+  always @(posedge clock) begin
+    io_Left_click_REG <= _ps2mouse_mouse_data[0];
+    if (reset) begin
+      reg_xpos <= 11'h0;
+      reg_ypos <= 10'h0;
+    end
+    else if (_ps2mouse_REn) begin
+      automatic logic [10:0] _next_xpos_T_2;
+      automatic logic [9:0]  _next_ypos_T_2;
+      _next_xpos_T_2 =
+        reg_xpos + {{3{_ps2mouse_mouse_data[15]}}, _ps2mouse_mouse_data[15:8]};
+      _next_ypos_T_2 =
+        reg_ypos - {{2{_ps2mouse_mouse_data[23]}}, _ps2mouse_mouse_data[23:16]};
+      if ($signed(_next_xpos_T_2) > 11'sh13F)
+        reg_xpos <= 11'h140;
+      else if ($signed(_next_xpos_T_2) < -11'sh13F)
+        reg_xpos <= 11'h6C0;
+      else
+        reg_xpos <= _next_xpos_T_2;
+      if ($signed(_next_ypos_T_2) > 10'shEF)
+        reg_ypos <= 10'hF0;
+      else if ($signed(_next_ypos_T_2) < -10'shEF)
+        reg_ypos <= 10'h310;
+      else
+        reg_ypos <= _next_ypos_T_2;
+    end
+  end // always @(posedge)
+  ps2mouse ps2mouse (
+    .clock      (clock),
+    .reset      (reset),
+    .ps2_clk    (io_ps2_clk),
+    .ps2_data   (io_ps2_data),
+    .REn        (_ps2mouse_REn),
+    .mouse_data (_ps2mouse_mouse_data)
+  );
+  assign io_Left_click = ~io_Left_click_REG & _ps2mouse_mouse_data[0];
+  assign io_mouse_xpos = reg_xpos + 11'h140;
+  assign io_mouse_ypos = reg_ypos + 10'hF0;
+endmodule
+
+// external module BRAM_pointer
 
 module image(
   input         clock,
-  input  [9:0]  io_xaddr,
-                io_yaddr,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  input  [10:0] io_pos_x,
+  input  [9:0]  io_pos_y,
   output        io_hit,
   output [11:0] io_rgb
 );
 
-  wire [11:0] _bram_douta;
-  reg         io_hit_REG;
-  reg  [11:0] io_rgb_REG;
-  always @(posedge clock) begin
-    io_hit_REG <=
-      io_xaddr > 10'hDB & io_xaddr < 10'h1A4 & io_yaddr > 10'h8B & io_yaddr < 10'h154;
-    io_rgb_REG <= _bram_douta;
-  end // always @(posedge)
+  wire io_hit_0 =
+    {1'h0, io_vgaCtrl_xaddr} >= io_pos_x & {2'h0, io_vgaCtrl_xaddr} < {1'h0, io_pos_x}
+    + 12'h20 & io_vgaCtrl_yaddr >= io_pos_y & {1'h0, io_vgaCtrl_yaddr} < {1'h0, io_pos_y}
+    + 11'h20 & io_vgaCtrl_valid;
+  BRAM_pointer bram (
+    .clka  (clock),
+    .ena   (io_hit_0),
+    .addra
+      (io_vgaCtrl_xaddr - io_pos_x[9:0] + {io_vgaCtrl_yaddr[4:0] - io_pos_y[4:0], 5'h0}),
+    .douta (io_rgb)
+  );
+  assign io_hit = io_hit_0;
+endmodule
+
+module img_pointer(
+  input         clock,
+                reset,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  output        io_hit,
+  output [11:0] io_rgb,
+  inout         io_ps2_clk,
+                io_ps2_data,
+  output        io_Left_click,
+  output [10:0] io_mouse_xpos,
+  output [9:0]  io_mouse_ypos
+);
+
+  wire [10:0] _mouse_pointer_io_mouse_xpos;
+  wire [9:0]  _mouse_pointer_io_mouse_ypos;
+  mouse_pointer mouse_pointer (
+    .clock         (clock),
+    .reset         (reset),
+    .io_ps2_clk    (io_ps2_clk),
+    .io_ps2_data   (io_ps2_data),
+    .io_Left_click (io_Left_click),
+    .io_mouse_xpos (_mouse_pointer_io_mouse_xpos),
+    .io_mouse_ypos (_mouse_pointer_io_mouse_ypos)
+  );
+  image img_p (
+    .clock            (clock),
+    .io_vgaCtrl_valid (io_vgaCtrl_valid),
+    .io_vgaCtrl_xaddr (io_vgaCtrl_xaddr),
+    .io_vgaCtrl_yaddr (io_vgaCtrl_yaddr),
+    .io_pos_x         (_mouse_pointer_io_mouse_xpos),
+    .io_pos_y         (_mouse_pointer_io_mouse_ypos),
+    .io_hit           (io_hit),
+    .io_rgb           (io_rgb)
+  );
+  assign io_mouse_xpos = _mouse_pointer_io_mouse_xpos;
+  assign io_mouse_ypos = _mouse_pointer_io_mouse_ypos;
+endmodule
+
+// external module BRAM_ui
+
+module image_1(
+  input         clock,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  output        io_hit,
+  output [11:0] io_rgb
+);
+
+  wire io_hit_0 =
+    io_vgaCtrl_xaddr > 10'hA9 & io_vgaCtrl_xaddr < 10'h1D6 & io_vgaCtrl_yaddr > 10'h59
+    & io_vgaCtrl_yaddr < 10'h186 & io_vgaCtrl_valid;
   BRAM_ui bram (
     .clka  (clock),
-    .ena   (io_hit_REG),
-    .addra ({6'h0, io_xaddr - 10'hDC} + {6'h0, io_yaddr - 10'h8C} * 16'hC8),
-    .douta (_bram_douta)
+    .ena   (io_hit_0),
+    .addra
+      ({7'h0, io_vgaCtrl_xaddr - 10'hAA} + {7'h0, io_vgaCtrl_yaddr - 10'h5A} * 17'h12C),
+    .douta (io_rgb)
   );
-  assign io_hit = io_hit_REG;
-  assign io_rgb = io_rgb_REG;
+  assign io_hit = io_hit_0;
+endmodule
+
+// external module BRAM_subui
+
+module image_2(
+  input         clock,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  output        io_hit,
+  output [11:0] io_rgb
+);
+
+  wire io_hit_0 =
+    io_vgaCtrl_xaddr > 10'hDB & io_vgaCtrl_xaddr < 10'h1A4 & io_vgaCtrl_yaddr > 10'hB3
+    & io_vgaCtrl_yaddr < 10'h12C & io_vgaCtrl_valid;
+  BRAM_subui bram (
+    .clka  (clock),
+    .ena   (io_hit_0),
+    .addra
+      ({5'h0, io_vgaCtrl_xaddr - 10'hDC} + {5'h0, io_vgaCtrl_yaddr - 10'hB4} * 15'hC8),
+    .douta (io_rgb)
+  );
+  assign io_hit = io_hit_0;
+endmodule
+
+// external module BRAM_button
+
+module img_button(
+  input         clock,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  input  [2:0]  io_state,
+  output        io_hit,
+  output [11:0] io_rgb
+);
+
+  wire [9:0]  _hitRgbPairs_T_16 = (io_vgaCtrl_xaddr - 10'h17C) % 10'h5D;
+  wire        _vga_matchs_vga_match_T_45 = io_vgaCtrl_yaddr > 10'hEF;
+  wire        vga_matchs_0 =
+    io_vgaCtrl_xaddr > 10'h17B & io_vgaCtrl_xaddr < 10'h1BC & _vga_matchs_vga_match_T_45
+    & io_vgaCtrl_yaddr < 10'h114 & io_vgaCtrl_valid;
+  wire        vga_matchs_1 =
+    io_vgaCtrl_xaddr > 10'h11F & io_vgaCtrl_xaddr < 10'h160 & _vga_matchs_vga_match_T_45
+    & io_vgaCtrl_yaddr < 10'h114 & io_vgaCtrl_valid;
+  wire        vga_matchs_2 =
+    io_vgaCtrl_xaddr > 10'hC3 & io_vgaCtrl_xaddr < 10'h104 & _vga_matchs_vga_match_T_45
+    & io_vgaCtrl_yaddr < 10'h114 & io_vgaCtrl_valid;
+  wire [12:0] _GEN = {io_vgaCtrl_yaddr[5:0] + 6'h10, 7'h0};
+  BRAM_button button (
+    .clka  (clock),
+    .ena   (1'h1),
+    .addra
+      ((vga_matchs_0
+          ? {6'h0, _hitRgbPairs_T_16[6:0] % 7'h40 + {io_state[0], 6'h0}} + _GEN
+          : 13'h0)
+       | (vga_matchs_1
+            ? {6'h0, _hitRgbPairs_T_16[6:0] % 7'h40 + {io_state[1], 6'h0}} + _GEN
+            : 13'h0)
+       | (vga_matchs_2
+            ? {6'h0, _hitRgbPairs_T_16[6:0] % 7'h40 + {io_state[2], 6'h0}} + _GEN
+            : 13'h0)),
+    .douta (io_rgb)
+  );
+  assign io_hit = vga_matchs_0 | vga_matchs_1 | vga_matchs_2;
+endmodule
+
+// external module BRAM_number
+
+module img_number(
+  input         clock,
+                io_vgaCtrl_valid,
+  input  [9:0]  io_vgaCtrl_xaddr,
+                io_vgaCtrl_yaddr,
+  input  [8:0]  io_pos_x,
+                io_pos_y,
+  input         io_ena,
+  input  [13:0] io_number,
+  output        io_hit,
+  output [11:0] io_rgb
+);
+
+  wire [11:0] _num_i_douta;
+  wire [9:0]  _GEN = {1'h0, io_pos_x};
+  wire [9:0]  _x_bias_T = io_vgaCtrl_xaddr - _GEN;
+  wire [9:0]  _GEN_0 = {1'h0, io_pos_y};
+  wire [9:0]  _vga_matchs_vga_match_T_71 = io_vgaCtrl_yaddr - _GEN_0;
+  wire [9:0]  _f_addr_T = _x_bias_T % 10'h10;
+  wire [11:0] _f_addr_T_2 =
+    {7'h0, _f_addr_T[4:0]} + {2'h0, _vga_matchs_vga_match_T_71} * 12'hA0;
+  wire        _vga_matchs_vga_match_T_59 = io_ena & io_vgaCtrl_valid;
+  wire        _vga_matchs_vga_match_T_64 = io_vgaCtrl_yaddr >= _GEN_0;
+  wire [9:0]  _vga_matchs_vga_match_T_66 = _GEN_0 + 10'h10;
+  wire        vga_matchs_0 =
+    io_vgaCtrl_xaddr >= _GEN & io_vgaCtrl_xaddr < _GEN + 10'h10
+    & _vga_matchs_vga_match_T_64 & io_vgaCtrl_yaddr < _vga_matchs_vga_match_T_66
+    & _vga_matchs_vga_match_T_59;
+  wire [9:0]  _GEN_1 = {1'h0, io_pos_x + 9'h10};
+  wire        vga_matchs_1 =
+    io_vgaCtrl_xaddr >= _GEN_1 & io_vgaCtrl_xaddr < _GEN_1 + 10'h10
+    & _vga_matchs_vga_match_T_64 & io_vgaCtrl_yaddr < _vga_matchs_vga_match_T_66
+    & _vga_matchs_vga_match_T_59;
+  wire [9:0]  _GEN_2 = {1'h0, io_pos_x + 9'h20};
+  wire        vga_matchs_2 =
+    io_vgaCtrl_xaddr >= _GEN_2 & io_vgaCtrl_xaddr < _GEN_2 + 10'h10
+    & _vga_matchs_vga_match_T_64 & io_vgaCtrl_yaddr < _vga_matchs_vga_match_T_66
+    & _vga_matchs_vga_match_T_59;
+  wire [9:0]  _GEN_3 = {1'h0, io_pos_x + 9'h30};
+  wire        vga_matchs_3 =
+    io_vgaCtrl_xaddr >= _GEN_3 & io_vgaCtrl_xaddr < _GEN_3 + 10'h10
+    & _vga_matchs_vga_match_T_64 & io_vgaCtrl_yaddr < _vga_matchs_vga_match_T_66
+    & _vga_matchs_vga_match_T_59;
+  wire [13:0] _bits_bit_T_1 = io_number % 14'hA;
+  wire [13:0] _bits_bit_T_3 = io_number / 14'hA % 14'hA;
+  wire [13:0] _bits_bit_T_5 = io_number / 14'h64 % 14'hA;
+  wire [13:0] _bits_bit_T_7 = io_number / 14'h3E8 % 14'hA;
+  BRAM_number num_i (
+    .clka  (clock),
+    .ena   (io_ena),
+    .addra
+      ((vga_matchs_0 ? _f_addr_T_2 + {4'h0, _bits_bit_T_7[3:0], 4'h0} : 12'h0)
+       | (vga_matchs_1 ? _f_addr_T_2 + {4'h0, _bits_bit_T_5[3:0], 4'h0} : 12'h0)
+       | (vga_matchs_2 ? _f_addr_T_2 + {4'h0, _bits_bit_T_3[3:0], 4'h0} : 12'h0)
+       | (vga_matchs_3 ? _f_addr_T_2 + {4'h0, _bits_bit_T_1[3:0], 4'h0} : 12'h0)),
+    .douta (_num_i_douta)
+  );
+  assign io_hit = vga_matchs_0 | vga_matchs_1 | vga_matchs_2 | vga_matchs_3;
+  assign io_rgb =
+    _x_bias_T > 10'h30 & _x_bias_T < 10'h35 & _vga_matchs_vga_match_T_71 > 10'hC
+    & _vga_matchs_vga_match_T_71 < 10'h11
+      ? 12'h0
+      : _num_i_douta;
 endmodule
 
 module II_final(
   input         clock,
                 reset,
-  output        io_vga_sync_hsync,
-                io_vga_sync_vsync,
-                io_vga_sync_valid,
-  output [11:0] io_rgb
+  output        io_sync_hsync,
+                io_sync_vsync,
+  output [11:0] io_rgb,
+  inout         io_ps2_clk,
+                io_ps2_data
 );
 
+  wire        _img_num_io_hit;
+  wire [11:0] _img_num_io_rgb;
+  wire        _img_button_io_hit;
+  wire [11:0] _img_button_io_rgb;
+  wire        _img_subui_io_hit;
+  wire [11:0] _img_subui_io_rgb;
   wire        _img_ui_io_hit;
   wire [11:0] _img_ui_io_rgb;
-  wire [9:0]  _vga_sync_xaddr;
-  wire [9:0]  _vga_sync_yaddr;
+  wire        _img_pointer_io_hit;
+  wire [11:0] _img_pointer_io_rgb;
+  wire        _img_pointer_io_Left_click;
+  wire [10:0] _img_pointer_io_mouse_xpos;
+  wire [9:0]  _img_pointer_io_mouse_ypos;
+  wire        _vga_sync_Ctrl_valid;
+  wire [9:0]  _vga_sync_Ctrl_xaddr;
+  wire [9:0]  _vga_sync_Ctrl_yaddr;
+  wire        _mainui_buy_cond_T_22 = _img_pointer_io_mouse_ypos > 10'hEF;
+  wire        mainui_buy_cond_0 =
+    _img_pointer_io_mouse_xpos > 11'hC7 & _img_pointer_io_mouse_xpos < 11'h108
+    & _mainui_buy_cond_T_22 & _img_pointer_io_mouse_ypos < 10'h118;
+  wire        mainui_buy_cond_1 =
+    _img_pointer_io_mouse_xpos > 11'h121 & _img_pointer_io_mouse_xpos < 11'h162
+    & _mainui_buy_cond_T_22 & _img_pointer_io_mouse_ypos < 10'h118;
+  wire        mainui_buy_cond_2 =
+    _img_pointer_io_mouse_xpos > 11'h17B & _img_pointer_io_mouse_xpos < 11'h1BC
+    & _mainui_buy_cond_T_22 & _img_pointer_io_mouse_ypos < 10'h118;
+  reg  [1:0]  ui_state;
+  reg  [13:0] num_total;
+  reg  [6:0]  num_buy;
+  wire [10:0] _GEN = {4'h0, num_buy};
+  wire [11:0] _GEN_0 = {5'h0, num_buy};
+  wire [12:0] _GEN_1 = {6'h0, num_buy};
+  wire        _img_num_io_number_T_1 = _vga_sync_Ctrl_xaddr > 10'h129;
+  wire        _img_num_io_number_T_5 = _vga_sync_Ctrl_yaddr > 10'hD1;
+  wire        _img_num_io_number_T_14 = _vga_sync_Ctrl_xaddr > 10'h119;
+  wire        _img_num_io_number_T_18 = _vga_sync_Ctrl_yaddr > 10'hE7;
+  reg         tar3_blink_0_state;
+  reg  [26:0] tar3_blink_0_count;
+  reg         tar3_blink_1_state;
+  reg  [26:0] tar3_blink_1_count;
+  reg         tar3_blink_2_state;
+  reg  [26:0] tar3_blink_2_count;
+  reg         tar3_blink_0_state_REG;
+  reg         tar3_blink_1_state_REG_1;
+  reg         tar3_blink_2_state_REG_2;
+  wire        _ui_rgb_tar_T_36 = _vga_sync_Ctrl_yaddr > 10'h95;
+  always @(posedge clock) begin
+    if (reset) begin
+      ui_state <= 2'h0;
+      num_total <= 14'h0;
+      num_buy <= 7'h0;
+      tar3_blink_0_state <= 1'h0;
+      tar3_blink_0_count <= 27'h0;
+      tar3_blink_1_state <= 1'h0;
+      tar3_blink_1_count <= 27'h0;
+      tar3_blink_2_state <= 1'h0;
+      tar3_blink_2_count <= 27'h0;
+    end
+    else begin
+      automatic logic       _subui_define_cond_T_9;
+      automatic logic       _subui_define_cond_T_13 =
+        _img_pointer_io_mouse_ypos > 10'h103;
+      automatic logic [1:0] subui_select;
+      automatic logic       _tar3_blink_2_state_T_17;
+      _subui_define_cond_T_9 = _img_pointer_io_mouse_xpos > 11'h15D;
+      subui_select =
+        _img_pointer_io_mouse_xpos > 11'hE9 & _img_pointer_io_mouse_xpos < 11'h122
+        & _subui_define_cond_T_13 & _img_pointer_io_mouse_ypos < 10'h120
+          ? 2'h1
+          : {_subui_define_cond_T_9 & _img_pointer_io_mouse_xpos < 11'h196
+               & _subui_define_cond_T_13 & _img_pointer_io_mouse_ypos < 10'h120,
+             1'h0};
+      _tar3_blink_2_state_T_17 = subui_select == 2'h2;
+      if (_img_pointer_io_Left_click) begin
+        automatic logic             _mainui_insert_cond_T_22 =
+          _img_pointer_io_mouse_ypos > 10'h14E;
+        automatic logic             _ui_state_T_17;
+        automatic logic             _ui_state_T_18;
+        automatic logic             _num_total_T_25;
+        automatic logic [13:0]      _GEN_2 = {3'h0, _GEN * 11'hA};
+        automatic logic [13:0]      _GEN_3 = {2'h0, _GEN_0 * 12'h19};
+        automatic logic [13:0]      _GEN_4 = {1'h0, _GEN_1 * 13'h28};
+        automatic logic [3:0][1:0]  _GEN_5;
+        (* keep = "true" *)
+        automatic logic [1:0]       _GEN_ARRAY_IDX = ui_state;
+        automatic logic [3:0][13:0] _GEN_6;
+        (* keep = "true" *)
+        automatic logic [1:0]       _GEN_ARRAY_IDX_0 = ui_state;
+        _ui_state_T_17 = subui_select == 2'h1;
+        _ui_state_T_18 = subui_select == 2'h2;
+        _num_total_T_25 = subui_select == 2'h2;
+        _GEN_5 =
+          {{_ui_state_T_17 | _ui_state_T_18 & num_total >= {1'h0, _GEN_1 * 13'h28}
+              ? 2'h0
+              : ui_state},
+           {_ui_state_T_17 | _ui_state_T_18 & num_total >= {2'h0, _GEN_0 * 12'h19}
+              ? 2'h0
+              : ui_state},
+           {_ui_state_T_17 | _ui_state_T_18 & num_total >= {3'h0, _GEN * 11'hA}
+              ? 2'h0
+              : ui_state},
+           {(|ui_state)
+              ? 2'h0
+              : mainui_buy_cond_0
+                  ? 2'h1
+                  : mainui_buy_cond_1 ? 2'h2 : mainui_buy_cond_2 ? 2'h3 : ui_state}};
+        ui_state <= _GEN_5[_GEN_ARRAY_IDX];
+        _GEN_6 =
+          {{_num_total_T_25 & num_total >= _GEN_4 ? num_total - _GEN_4 : num_total},
+           {_num_total_T_25 & num_total >= _GEN_3 ? num_total - _GEN_3 : num_total},
+           {_num_total_T_25 & num_total >= _GEN_2 ? num_total - _GEN_2 : num_total},
+           {(|ui_state)
+              ? num_total
+              : _img_pointer_io_mouse_xpos > 11'h126
+                & _img_pointer_io_mouse_xpos < 11'h156 & _mainui_insert_cond_T_22
+                & _img_pointer_io_mouse_ypos < 10'h168
+                  ? num_total + 14'h5
+                  : _subui_define_cond_T_9 & _img_pointer_io_mouse_xpos < 11'h18D
+                    & _mainui_insert_cond_T_22 & _img_pointer_io_mouse_ypos < 10'h168
+                      ? num_total + 14'hA
+                      : _img_pointer_io_mouse_xpos > 11'h18F
+                        & _img_pointer_io_mouse_xpos < 11'h1C2 & _mainui_insert_cond_T_22
+                        & _img_pointer_io_mouse_ypos < 10'h168
+                          ? num_total + 14'h64
+                          : num_total}};
+        num_total <= _GEN_6[_GEN_ARRAY_IDX_0];
+        if (|ui_state) begin
+          automatic logic _subui_change_cond_T_13;
+          _subui_change_cond_T_13 = _img_pointer_io_mouse_ypos > 10'hD2;
+          if (_img_pointer_io_mouse_xpos > 11'h106 & _img_pointer_io_mouse_xpos < 11'h11D
+              & _subui_change_cond_T_13 & _img_pointer_io_mouse_ypos < 10'hE7) begin
+            if (|num_buy)
+              num_buy <= num_buy - 7'h1;
+          end
+          else if (_img_pointer_io_mouse_xpos > 11'h15F
+                   & _img_pointer_io_mouse_xpos < 11'h176 & _subui_change_cond_T_13
+                   & _img_pointer_io_mouse_ypos < 10'hE7 & num_buy < 7'h63)
+            num_buy <= num_buy + 7'h1;
+        end
+        else
+          num_buy <= 7'h0;
+      end
+      if (tar3_blink_0_state) begin
+        tar3_blink_0_state <= ~(&tar3_blink_0_count);
+        if (&tar3_blink_0_count)
+          tar3_blink_0_count <= 27'h0;
+        else
+          tar3_blink_0_count <= tar3_blink_0_count + 27'h1;
+      end
+      else
+        tar3_blink_0_state <=
+          tar3_blink_0_state_REG & ~(|ui_state) & _tar3_blink_2_state_T_17 & (|num_buy);
+      if (tar3_blink_1_state) begin
+        tar3_blink_1_state <= ~(&tar3_blink_1_count);
+        if (&tar3_blink_1_count)
+          tar3_blink_1_count <= 27'h0;
+        else
+          tar3_blink_1_count <= tar3_blink_1_count + 27'h1;
+      end
+      else
+        tar3_blink_1_state <=
+          tar3_blink_1_state_REG_1 & ~(|ui_state) & _tar3_blink_2_state_T_17 & (|num_buy);
+      if (tar3_blink_2_state) begin
+        tar3_blink_2_state <= ~(&tar3_blink_2_count);
+        if (&tar3_blink_2_count)
+          tar3_blink_2_count <= 27'h0;
+        else
+          tar3_blink_2_count <= tar3_blink_2_count + 27'h1;
+      end
+      else
+        tar3_blink_2_state <=
+          tar3_blink_2_state_REG_2 & ~(|ui_state) & _tar3_blink_2_state_T_17 & (|num_buy);
+    end
+    tar3_blink_0_state_REG <= ui_state == 2'h1;
+    tar3_blink_1_state_REG_1 <= ui_state == 2'h2;
+    tar3_blink_2_state_REG_2 <= &ui_state;
+  end // always @(posedge)
   vga_sync vga_sync (
-    .clock    (clock),
-    .reset    (reset),
-    .io_hsync (io_vga_sync_hsync),
-    .io_vsync (io_vga_sync_vsync),
-    .io_valid (io_vga_sync_valid),
-    .xaddr    (_vga_sync_xaddr),
-    .yaddr    (_vga_sync_yaddr)
+    .clock      (clock),
+    .reset      (reset),
+    .io_hsync   (io_sync_hsync),
+    .io_vsync   (io_sync_vsync),
+    .Ctrl_valid (_vga_sync_Ctrl_valid),
+    .Ctrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .Ctrl_yaddr (_vga_sync_Ctrl_yaddr)
   );
-  image img_ui (
-    .clock    (clock),
-    .io_xaddr (_vga_sync_xaddr),
-    .io_yaddr (_vga_sync_yaddr),
-    .io_hit   (_img_ui_io_hit),
-    .io_rgb   (_img_ui_io_rgb)
+  img_pointer img_pointer (
+    .clock            (clock),
+    .reset            (reset),
+    .io_vgaCtrl_valid (_vga_sync_Ctrl_valid),
+    .io_vgaCtrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .io_vgaCtrl_yaddr (_vga_sync_Ctrl_yaddr),
+    .io_hit           (_img_pointer_io_hit),
+    .io_rgb           (_img_pointer_io_rgb),
+    .io_ps2_clk       (io_ps2_clk),
+    .io_ps2_data      (io_ps2_data),
+    .io_Left_click    (_img_pointer_io_Left_click),
+    .io_mouse_xpos    (_img_pointer_io_mouse_xpos),
+    .io_mouse_ypos    (_img_pointer_io_mouse_ypos)
   );
-  assign io_rgb = _img_ui_io_rgb;
+  image_1 img_ui (
+    .clock            (clock),
+    .io_vgaCtrl_valid (_vga_sync_Ctrl_valid),
+    .io_vgaCtrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .io_vgaCtrl_yaddr (_vga_sync_Ctrl_yaddr),
+    .io_hit           (_img_ui_io_hit),
+    .io_rgb           (_img_ui_io_rgb)
+  );
+  image_2 img_subui (
+    .clock            (clock),
+    .io_vgaCtrl_valid (_vga_sync_Ctrl_valid),
+    .io_vgaCtrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .io_vgaCtrl_yaddr (_vga_sync_Ctrl_yaddr),
+    .io_hit           (_img_subui_io_hit),
+    .io_rgb           (_img_subui_io_rgb)
+  );
+  img_button img_button (
+    .clock            (clock),
+    .io_vgaCtrl_valid (_vga_sync_Ctrl_valid),
+    .io_vgaCtrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .io_vgaCtrl_yaddr (_vga_sync_Ctrl_yaddr),
+    .io_state
+      ((|ui_state) ? 3'h0 : {mainui_buy_cond_0, mainui_buy_cond_1, mainui_buy_cond_2}),
+    .io_hit           (_img_button_io_hit),
+    .io_rgb           (_img_button_io_rgb)
+  );
+  img_number img_num (
+    .clock            (clock),
+    .io_vgaCtrl_valid (_vga_sync_Ctrl_valid),
+    .io_vgaCtrl_xaddr (_vga_sync_Ctrl_xaddr),
+    .io_vgaCtrl_yaddr (_vga_sync_Ctrl_yaddr),
+    .io_pos_x
+      ((|ui_state) & _img_num_io_number_T_1 & _vga_sync_Ctrl_xaddr < 10'h14A
+       & _img_num_io_number_T_5 & _vga_sync_Ctrl_yaddr < 10'hE2
+         ? 9'h12A
+         : (|ui_state) & _img_num_io_number_T_14 & _vga_sync_Ctrl_xaddr < 10'h15A
+           & _img_num_io_number_T_18 & _vga_sync_Ctrl_yaddr < 10'hF8
+             ? 9'h11A
+             : 9'hC8),
+    .io_pos_y
+      ((|ui_state) & _img_num_io_number_T_1 & _vga_sync_Ctrl_xaddr < 10'h14A
+       & _img_num_io_number_T_5 & _vga_sync_Ctrl_yaddr < 10'hE2
+         ? 9'hD2
+         : (|ui_state) & _img_num_io_number_T_14 & _vga_sync_Ctrl_xaddr < 10'h15A
+           & _img_num_io_number_T_18 & _vga_sync_Ctrl_yaddr < 10'hF8
+             ? 9'hE8
+             : 9'h14A),
+    .io_ena
+      ((|ui_state) & _img_num_io_number_T_1 & _vga_sync_Ctrl_xaddr < 10'h14A
+       & _img_num_io_number_T_5 & _vga_sync_Ctrl_yaddr < 10'hE2
+         ? _img_num_io_number_T_1 & _vga_sync_Ctrl_xaddr < 10'h14A
+           & _img_num_io_number_T_5 & _vga_sync_Ctrl_yaddr < 10'hE2
+         : ~((|ui_state) & _img_num_io_number_T_14 & _vga_sync_Ctrl_xaddr < 10'h15A
+             & _img_num_io_number_T_18 & _vga_sync_Ctrl_yaddr < 10'hF8)
+           | _img_num_io_number_T_14 & _vga_sync_Ctrl_xaddr < 10'h15A
+           & _img_num_io_number_T_18 & _vga_sync_Ctrl_yaddr < 10'hF8),
+    .io_number
+      ((|ui_state) & _img_num_io_number_T_1 & _vga_sync_Ctrl_xaddr < 10'h14A
+       & _img_num_io_number_T_5 & _vga_sync_Ctrl_yaddr < 10'hE2
+         ? {7'h0, num_buy} * 14'h64
+         : (|ui_state) & _img_num_io_number_T_14 & _vga_sync_Ctrl_xaddr < 10'h15A
+           & _img_num_io_number_T_18 & _vga_sync_Ctrl_yaddr < 10'hF8
+             ? {1'h0,
+                (&ui_state)
+                  ? _GEN_1 * 13'h28
+                  : {1'h0,
+                     ui_state == 2'h2
+                       ? _GEN_0 * 12'h19
+                       : {1'h0, ui_state == 2'h1 ? _GEN * 11'hA : 11'h0}}}
+             : num_total),
+    .io_hit           (_img_num_io_hit),
+    .io_rgb           (_img_num_io_rgb)
+  );
+  assign io_rgb =
+    _img_pointer_io_hit
+      ? _img_pointer_io_rgb
+      : _img_num_io_hit
+          ? _img_num_io_rgb
+          : _img_subui_io_hit & (|ui_state)
+              ? _img_subui_io_rgb
+              : _img_button_io_hit
+                  ? _img_button_io_rgb
+                  : _img_ui_io_hit
+                      ? (_vga_sync_Ctrl_xaddr > 10'hC2 & _vga_sync_Ctrl_xaddr < 10'h109
+                         & _ui_rgb_tar_T_36 & _vga_sync_Ctrl_yaddr < 10'hE6
+                         & tar3_blink_0_count[24] | _vga_sync_Ctrl_xaddr > 10'h11C
+                         & _vga_sync_Ctrl_xaddr < 10'h163 & _ui_rgb_tar_T_36
+                         & _vga_sync_Ctrl_yaddr < 10'hE6 & tar3_blink_1_count[24]
+                         | _vga_sync_Ctrl_xaddr > 10'h176 & _vga_sync_Ctrl_xaddr < 10'h1BD
+                         & _ui_rgb_tar_T_36 & _vga_sync_Ctrl_yaddr < 10'hE6
+                         & tar3_blink_2_count[24]
+                           ? 12'hFFF
+                           : _img_ui_io_rgb)
+                      : {12{_vga_sync_Ctrl_xaddr > 10'h13
+                              & {1'h0, _vga_sync_Ctrl_xaddr} < 11'h26C
+                              & _vga_sync_Ctrl_yaddr < 10'h1E0}};
 endmodule
 

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Nov 14 08:00:07 2024
+| Date         : Thu Nov 14 09:28:20 2024
 | Host         : WIN-H8ULN2I4VKL running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file II_4_control_sets_placed.rpt
 | Design       : II_4
@@ -50,12 +50,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               8 |            6 |
-| No           | No                    | Yes                    |              22 |            9 |
-| No           | Yes                   | No                     |              10 |            4 |
-| Yes          | No                    | No                     |              23 |            9 |
-| Yes          | No                    | Yes                    |              61 |           19 |
-| Yes          | Yes                   | No                     |              20 |            6 |
+| No           | No                    | No                     |               8 |            5 |
+| No           | No                    | Yes                    |              22 |           11 |
+| No           | Yes                   | No                     |              10 |            3 |
+| Yes          | No                    | No                     |              23 |           10 |
+| Yes          | No                    | Yes                    |              61 |           23 |
+| Yes          | Yes                   | No                     |              20 |            5 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -67,19 +67,19 @@ Table of Contents
 +---------------------------------------------+--------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
 |  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/reg_ypos_0      | img_pointer/mouse_pointer/ps2_mouse/U2/isDone_reg_0 |                1 |              4 |
 |  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/reg_ypos_0      | img_pointer/mouse_pointer/ps2_mouse/U2/isDone_reg_1 |                1 |              6 |
-|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U1/i[6]_i_1_n_0    | reset_IBUF                                          |                3 |              7 |
-|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/i[6]_i_1__0_n_0 | reset_IBUF                                          |                3 |              7 |
+|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U1/i[6]_i_1_n_0    | reset_IBUF                                          |                2 |              7 |
 |  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/reg_ypos_0      |                                                     |                3 |              7 |
-|  clock_IBUF_BUFG                            |                                                        |                                                     |                6 |              8 |
-|  clock_IBUF_BUFG                            | img_a/_img_a_io_hit                                    |                                                     |                3 |              8 |
+|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/i[6]_i_1__0_n_0 | reset_IBUF                                          |                3 |              7 |
+|  clock_IBUF_BUFG                            |                                                        |                                                     |                5 |              8 |
+|  clock_IBUF_BUFG                            | img_a/_img_a_io_hit                                    |                                                     |                4 |              8 |
 |  clock_IBUF_BUFG                            | img_b/_img_b_io_hit                                    |                                                     |                3 |              8 |
-|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/D1[23]_i_1_n_0  | reset_IBUF                                          |                2 |              8 |
-|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/D1[15]_i_1_n_0  | reset_IBUF                                          |                4 |              8 |
-| ~vga_sync/clock_devider/counter_reg[1]_0[0] |                                                        | vga_sync/x_cnt[9]_i_1_n_0                           |                4 |             10 |
-| ~vga_sync/clock_devider/counter_reg[1]_0[0] | vga_sync/y_cnt[9]_i_2_n_0                              | vga_sync/y_cnt[9]_i_1_n_0                           |                4 |             10 |
+|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/D1[23]_i_1_n_0  | reset_IBUF                                          |                3 |              8 |
+|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/D1[15]_i_1_n_0  | reset_IBUF                                          |                2 |              8 |
+| ~vga_sync/clock_devider/counter_reg[1]_0[0] |                                                        | vga_sync/x_cnt[9]_i_1_n_0                           |                3 |             10 |
+| ~vga_sync/clock_devider/counter_reg[1]_0[0] | vga_sync/y_cnt[9]_i_2_n_0                              | vga_sync/y_cnt[9]_i_1_n_0                           |                3 |             10 |
 |  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U1/C1[12]_i_1_n_0  | reset_IBUF                                          |                3 |             13 |
-|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/E[0]            | reset_IBUF                                          |                4 |             18 |
-|  clock_IBUF_BUFG                            |                                                        | reset_IBUF                                          |                9 |             22 |
+|  clock_IBUF_BUFG                            | img_pointer/mouse_pointer/ps2_mouse/U2/E[0]            | reset_IBUF                                          |               10 |             18 |
+|  clock_IBUF_BUFG                            |                                                        | reset_IBUF                                          |               11 |             22 |
 +---------------------------------------------+--------------------------------------------------------+-----------------------------------------------------+------------------+----------------+
 
 
